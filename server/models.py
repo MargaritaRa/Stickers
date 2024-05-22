@@ -46,7 +46,7 @@ class User (db.Model):
             raise ValueError('Must be at least 13 years old!')
 
 
-class Item (db.Model):
+class Items (db.Model):
     __tablename__ = "items"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -65,7 +65,7 @@ class Carts (db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey('items.id'))
 
     user = db.relationship("User", back_populates="carts")
-    item = db.relationship("Item", back_populates="carts")
+    item = db.relationship("Items", back_populates="carts")
 
 
 
