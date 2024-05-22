@@ -19,6 +19,7 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
+
 URL_PREFIX = '/api'
 
 #function for creating users

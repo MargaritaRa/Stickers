@@ -65,7 +65,7 @@ class Carts (db.Model, SerializerMixin):
     item_id = db.Column(db.Integer, db.ForeignKey('items.id'))
 
     user = db.relationship("User", back_populates="carts")
-    item = db.relationship("Item", back_populates="carts")
+    item = db.relationship("Items", back_populates="carts")
 
 
 
