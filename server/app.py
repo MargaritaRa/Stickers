@@ -4,8 +4,9 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
+import sqlalchemy
 
-from models import db, User, Carts # import your models here!
+from models import db, User, Carts, Items # import your models here!
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -93,17 +94,22 @@ def delete_user_by_id(id):
 #         return { 'error': 'Not found' }, 404
     
 #function for adding items to cart
-@app.get(URL_PREFIX + '/carts')
-def post_video_game():
-    item = Carts(
-        user_id = request.json.get('user_id'),
-        item_id = request.json.get('item_id')
-    )
-    db.session.add(item)
-    db.session.commit()
-    return item.to_dict()
+@app.post(URL_PREFIX + '/carts')
+def post_items_to_cart():
+    try:
+        item = Carts(
+            user_id = request.json.get('user_id'),
+            item_id = request.json.get('item_id')
+        )
+        db.session.add(item)
+        db.session.commit()
+        return item.to_dict(), 201
+    except sqlalchemy.exc.IntegrityError as error:
+        return {"error": "Invalid data"}, 400
+    except ValueError as error:
+        return {"error": str(error)}
     
-#function for all items pertaining to a specific user
+#function for getting all items pertaining to a specific user
 @app.get(URL_PREFIX + '/carts/<int:id>')
 def cart_items_by_user_id(id):
     user_cart = Carts.query.where(Carts.user_id == id).first()
@@ -111,7 +117,8 @@ def cart_items_by_user_id(id):
         return user_cart.to_dict(), 200
     else:
         return {'error': 'Not found'}, 404
-    
+
+#function for deleting item from the users cart
 @app.delete(URL_PREFIX + '/carts/<int:id>')
 def delete_cart_item(id):
     cart_item = Carts.query.where(Carts.id == id).first()
@@ -121,7 +128,62 @@ def delete_cart_item(id):
         return {}, 204
     else:
         return {'error': 'Not found'}, 404
+    
+#function for getting items; USE POSTMAN
+@app.get(URL_PREFIX + '/items')
+def all_items():
+    return [item.to_dict() for item in Items.query.all()], 200
 
+#function for getting item by id; USE POSTMAN
+@app.get(URL_PREFIX + '/items/<int:id>')
+def item_by_id(id):
+    user = User.query.where(User.id == id).first()
+    if user:
+        return user.to_dict(), 200
+    else:
+        return {'error': 'Not found'}, 404
+    
+#function adds items to the items table; USE POSTMAN
+@app.post(URL_PREFIX + '/items')
+def post_items():
+    try:
+        item = Items(
+            name = request.json.get('name'),
+            price = request.json.get('price'),
+            image = request.json.get('image'),
+            category = request.json.get('category'),
+        )
+        db.session.add(item)
+        db.session.commit()
+        return item.to_dict(), 201
+    except sqlalchemy.exc.IntegrityError as error:
+        return {"error": "Invalid data"}, 400
+    except ValueError as error:
+        return {"error": str(error)}
+
+#functions deletes item form the items table; USE POSTMAN
+@app.delete(URL_PREFIX + '/items/<int:id>')
+def delete_item(id):
+    item = Items.query.where(Items.id == id).first()
+    if item:
+        db.session.delete(item)
+        db.session.commit()
+        return {}, 204
+    else:
+        return {'error': 'Not found'}, 404
+
+#function patches item by id in table; USE POSTMAN
+@app.patch(URL_PREFIX + '/items/<int:id>')
+def patch_item_by_id(id):
+    item = Items.query.where(Items.id == id).first()
+    if item:
+        for key in request.json.keys():
+            setattr(item, key, request.json[key])
+        db.session.add(item)
+        db.session.commit()
+        return item.to_dict(), 202
+    else:
+        return {'error': 'Not found'}, 404
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

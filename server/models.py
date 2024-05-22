@@ -12,7 +12,7 @@ db = SQLAlchemy(metadata=metadata)
 
 # write your models here!
 
-class User (db.Model):
+class User (db.Model, SerializerMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -46,7 +46,7 @@ class User (db.Model):
             raise ValueError('Must be at least 13 years old!')
 
 
-class Item (db.Model):
+class Items (db.Model, SerializerMixin):
     __tablename__ = "items"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -57,7 +57,7 @@ class Item (db.Model):
 
     carts = db.relationship('Carts', back_populates='item')
 
-class Carts (db.Model):
+class Carts (db.Model, SerializerMixin):
     __tablename__ = "carts"
 
     id = db.Column(db.Integer, primary_key=True)
