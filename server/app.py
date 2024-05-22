@@ -18,7 +18,7 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
-@app.get('/')
+@app.get('/api')
 def index():
     return "Hello world"
 
