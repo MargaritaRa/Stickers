@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom/client'
 
 // Components
 import App from './components/App.jsx'
-import Home from './components/'
+import Home from './components/Home.jsx'
 import UserPanel from './components/UserPanel/index.jsx'
 import Cart from './components/Cart'
+import ErrorPage from './components/ErrorPage.jsx'
+import Sticker from './components/Sticker.jsx'
 
 import Fav from './components/Fav'
 
@@ -45,8 +47,8 @@ const routes = [
         errorElement: <ErrorPage />,
         children: [
           {
-            path:'cart/:id',
-            element: <CartItem />,
+            path:'sticker/:id',
+            element: <Sticker />,
             errorElement: <ErrorPage />
           }
         ]
