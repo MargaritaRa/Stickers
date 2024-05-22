@@ -1,7 +1,9 @@
+import { useState } from "react"
+
 function Signup({setCurrentUser}){
     //state
     const [username, setUsername] = useState('')
-    const [password, setPassword] = usestate ('')
+    const [password, setPassword] = useState ('')
     
     //Event //
     

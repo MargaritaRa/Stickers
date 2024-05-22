@@ -1,15 +1,19 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 export default function Footer(){
     return (
         <div className="footer">
 
-            <a className="footer_inner"> href="https://github.com/MargaritaRa/Stickers.git"</a>
-           
-            <Link className="footer_inner" to="/home">Home</Link>
+            <a className="footer_inner" href="https://github.com/MargaritaRa/Stickers.git">GitHub</a>
+            <br />
+            <Link className="footer_inner" to="/">Home</Link>
+            <br />
             <Link className="footer_inner" to="/cart">Cart</Link>
-            <Link className="footer_inner" to="/fav">Cart</Link>
-            <Link className="footer_inner" to="/index">Login</Link>
+            <br />
+            <Link className="footer_inner" to="/fav">Fav</Link>
+            <br />
+            <Link className="footer_inner" to="/userPanel">Login</Link>
         
 
 

@@ -2,11 +2,27 @@
 import Header from './Header'
 import Footer from './Footer'
 import {Outlet} from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 
 function App() {
+
+  const[currentUser, setCurrentUser] = useState(null)
+
+  //Effect//
+  useEffect(() => {
+    fetch('/api/check-session')
+    .then(response => {
+      if (response.status === 200) {
+        response.json()
+        .then(loggedInUser => setCurrentUser(loggedInUser))
+      }
+    })
+  },[])
+
   return (
-    <div>
+    <div className='App'>
+      <h1>Login in Page</h1>
 
       <Header />
       <Outlet />
@@ -15,7 +31,6 @@ function App() {
 
     </div>
   )
-
 }
 
 export default App
