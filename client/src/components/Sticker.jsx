@@ -24,12 +24,10 @@ function Sticker({ name, price, image, category }) {
             <button>❤️</button>
 
             <CartFunction />
-<<<<<<< HEAD
+
             <FavFunction />
 
             {/* <button>❤️</button> */}
-=======
->>>>>>> c0513f74968e9d194113f1e4eaad2b6f47e021a6
 
         </article>
     );
