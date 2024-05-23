@@ -35,10 +35,7 @@ URL_PREFIX = '/api'
 @app.post(URL_PREFIX + '/users')
 def create_user():
     try:
-        new_user = User(
-            username = request.json['username'],
-            age = request.json['age']
-        )
+        new_user = User(username = request.json['username'])
         new_user._hashed_password = bcrypt.generate_password_hash(request.json['password']).decode('utf-8')
         db.session.add(new_user)
         db.session.commit()
