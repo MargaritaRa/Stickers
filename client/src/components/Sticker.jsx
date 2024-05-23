@@ -2,8 +2,10 @@ import CartFunction from "./CartFunction";
 
 function Sticker({ name, price, image, category }) {
     return (
-        <article className="sticker">
+
+        <article className="stickerPost">
              <h4>🍭 This is A Sticker Item</h4>
+
             <div className="sticker-img">
                 <img src={image} alt={name} />
             </div>
@@ -17,7 +19,11 @@ function Sticker({ name, price, image, category }) {
                 <h4 className="category">{category}</h4>
             </div>
 
+            <button>Add to cart</button>
+            <button>❤️</button>
+
             <CartFunction />
+
         </article>
     );
 }
