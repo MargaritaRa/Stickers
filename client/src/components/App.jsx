@@ -22,7 +22,6 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Login in Page</h1>
 
       <Header />
       <Outlet />
