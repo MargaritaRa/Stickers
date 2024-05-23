@@ -1,4 +1,4 @@
-import React, { } from "react"
+import React, { useState, useEffect} from "react"
 import Sticker from "./Sticker"
 import CartFunction from "./CartFunction"
 
