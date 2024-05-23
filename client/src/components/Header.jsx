@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 export default function Header(){
 return(
@@ -12,6 +13,20 @@ return(
             🧃
             </span>
         </h1>
+            <br />
+        <h3>
+            <Link className="footer_inner" to="/">Home</Link>
+            <br />
+            <Link className="footer_inner" to="/cart">Cart</Link>
+            <br />
+            <Link className="footer_inner" to="/fav">Fav</Link>
+            <br />
+            <Link className="footer_inner" to="/userPanel">Login</Link>
+        
+        </h3>
+
+
+     
 
     </header>
 )

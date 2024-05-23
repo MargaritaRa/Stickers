@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client'
 import App from './components/App.jsx'
 import Home from './components/Home.jsx'
 import UserPanel from './components/UserPanel/index.jsx'
-import Cart from './components/Cart'
+import Cart from './components/CartPage.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Sticker from './components/Sticker.jsx'
 

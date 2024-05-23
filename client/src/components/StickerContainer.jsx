@@ -1,8 +1,15 @@
 import React, { } from "react"
+import Sticker from "./Sticker"
+import CartFunction from "./CartFunction"
 
 function StickerContainer(){
     return (
-        <div>Sticker Container</div>
+
+        <div>
+            <div>Sticker Container</div>
+            <Sticker/>
+     
+        </div>
     )
 }
 

@@ -1,6 +1,15 @@
+import React, { } from "react"
+import CartFunction from "./CartFunction"
+
 function Sticker(){
     return(
-        <div> I am A sticker Item</div>
+
+        <div>
+            <div> I am A sticker Item</div> 
+            <CartFunction />
+
+        </div>
+      
     )
 }
 
