@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 export default function Header(){
 return(
@@ -12,6 +13,9 @@ return(
             🧃
             </span>
         </h1>
+        <div className="navBar">
+            <NavBar />
+        </div>
 
     </header>
 )
