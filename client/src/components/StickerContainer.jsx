@@ -24,8 +24,8 @@ function StickerContainer(){
      
      
         {mappedItems}
-        <button>Add to cart</button>
-        <button>❤️</button>
+        {/* <button>Add to cart</button> */}
+   
 
        </div>
     )
