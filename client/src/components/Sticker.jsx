@@ -3,8 +3,10 @@ import FavFunction from "./FavFunction"
 
 function Sticker({ name, price, image, category }) {
     return (
-        <article className="sticker">
+
+        <article className="stickerPost">
              <h4>🍭 This is A Sticker Item</h4>
+
             <div className="sticker-img">
                 <img src={image} alt={name} />
             </div>
@@ -18,10 +20,16 @@ function Sticker({ name, price, image, category }) {
                 <h4 className="category">{category}</h4>
             </div>
 
+            <button>Add to cart</button>
+            <button>❤️</button>
+
             <CartFunction />
+<<<<<<< HEAD
             <FavFunction />
 
             {/* <button>❤️</button> */}
+=======
+>>>>>>> c0513f74968e9d194113f1e4eaad2b6f47e021a6
 
         </article>
     );

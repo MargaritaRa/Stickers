@@ -1,4 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
 body {
   margin: 0;
   padding: 1em;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1800px;
+}
+img{
+  display: block;
+  object-fit: cover;
+  width: 50%;
+}
+.stickerPost{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  gap: 4rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  padding-bottom: 2rem;
+  transition: .3s ease all;
+  cursor: pointer;
+}
+.sticker-img{
+  border-radius: .8rem;
+  overflow: hidden;
+  height: 16rem;
+  overflow: hidden;
 }

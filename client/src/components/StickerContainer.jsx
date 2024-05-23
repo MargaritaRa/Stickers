@@ -24,9 +24,12 @@ function StickerContainer(){
      
      
         {mappedItems}
+<<<<<<< HEAD
         {/* <button>Add to cart</button> */}
    
 
+=======
+>>>>>>> c0513f74968e9d194113f1e4eaad2b6f47e021a6
        </div>
     )
 }
