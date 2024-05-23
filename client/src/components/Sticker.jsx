@@ -1,6 +1,6 @@
 function Sticker({ name, price, image, category }) {
     return (
-        <article className="sticker">
+        <article className="stickerPost">
             <div className="sticker-img">
                 <img src={image} alt={name} />
             </div>
@@ -13,6 +13,8 @@ function Sticker({ name, price, image, category }) {
             <div className="sticker-footer">
                 <h4 className="category">{category}</h4>
             </div>
+            <button>Add to cart</button>
+            <button>❤️</button>
         </article>
     );
 }

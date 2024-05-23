@@ -18,9 +18,6 @@ function StickerContainer(){
     return (
        <div className="sticker-container">
         {mappedItems}
-        <button>Add to cart</button>
-        <button>❤️</button>
-
        </div>
     )
 }
