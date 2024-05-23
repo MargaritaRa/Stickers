@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
@@ -6,9 +7,12 @@ import StickerContainer from "./StickerContainer";
 // import UserPanel from './UserPanel';
 
 
+
 function App() {
 
   const[currentUser, setCurrentUser] = useState(null)
+
+  
 
   //Effect//
   useEffect(() => {
@@ -21,12 +25,17 @@ function App() {
     })
   },[])
 
+
+
+
   return (
     <div className='App'>
+
       <Header />
       {/* <UserPanel currentUser={currentUser} setCurrentUser={setCurrentUser} /> */}
       <Outlet context={{ currentUser, setCurrentUser }}/>
       <Footer />
+        
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react"
 import Sticker from "./Sticker"
+import CartFunction from "./CartFunction"
 
 function StickerContainer(){
 
@@ -16,7 +17,12 @@ function StickerContainer(){
     const mappedItems = items.map(item => ( <Sticker key={item.id} name={item.name} price={item.price} image={item.image} category={item.category} />))
 
     return (
-       <div className="sticker-container">
+
+        <div>
+            <div>Sticker Container</div>
+            <Sticker/>
+     
+     
         {mappedItems}
        </div>
     )
