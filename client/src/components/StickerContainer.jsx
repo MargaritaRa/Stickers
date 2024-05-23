@@ -24,8 +24,10 @@ function StickerContainer(){
      
      
         {mappedItems}
+
         {/* <button>Add to cart</button> */}
    
+
 
        </div>
     )

@@ -1,11 +1,10 @@
 
-import Header from './Header'
-import Footer from './Footer'
-import CartPage from './CartPage'
-import {Outlet} from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import React from 'react'
-
+import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
+import StickerContainer from "./StickerContainer";
+// import UserPanel from './UserPanel';
 
 
 
@@ -31,20 +30,12 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>This is App.jsx</h1>
-
-      
 
       <Header />
-
-      <Outlet />
-
-
-
+      {/* <UserPanel currentUser={currentUser} setCurrentUser={setCurrentUser} /> */}
+      <Outlet context={{ currentUser, setCurrentUser }}/>
       <Footer />
-
-
-
+        
     </div>
   )
 }

@@ -17,7 +17,7 @@ class User (db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)
-    password = db.Column(db.String, nullable=False)
+    _hashed_password = db.Column(db.String, nullable=False)
     age = db.Column(db.Integer)
 
     carts = db.relationship('Carts', back_populates='user')
