@@ -1,17 +1,20 @@
 import React, {useState} from 'react'
 
-export default function FavFunction(){
-
-    const [favs, setFavs] = useState([])
+export default function FavFunction({item}){
 
     const [emoji, setEmoji] = useState('🩶')
-
-
     const toggleEmoji=()=>{
         setEmoji(emoji == '💜'? '🩶':'💜')
     }
 
-    const toggleFav = (allStickers)=>{
+    const [favs, setFavs] = useState([])
+    const toggleFav = (items)=>{
+        if(favs.includes(item)){
+            setFavs(favs.filter(fav=>fav!== item))
+        } else {
+            setFavs([...favs, item])
+        }
+        
 
     }
 

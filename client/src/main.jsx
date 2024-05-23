@@ -6,11 +6,11 @@ import ReactDOM from 'react-dom/client'
 import App from './components/App.jsx'
 import Home from './components/Home.jsx'
 import UserPanel from './components/UserPanel/index.jsx'
-import Cart from './components/CartPage.jsx'
+import CartPage from './components/CartPage.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Sticker from './components/Sticker.jsx'
 
-import Fav from './components/Fav'
+import FavPage from './components/FavPage.jsx'
 
 
 // CSS
@@ -38,12 +38,12 @@ const routes = [
       },
       {
         path: 'fav',
-        element: <Fav />,
+        element: <FavPage />,
         errorElement: <ErrorPage />
       },
       {
         path:'cart',
-        element: <Cart />,
+        element: <CartPage />,
         errorElement: <ErrorPage />,
         children: [
           {
