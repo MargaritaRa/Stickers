@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request
+from flask import Flask, request, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 import sqlalchemy
+from flask_bcrypt import Bcrypt
+import os
 
 from models import db, User, Carts, Items # import your models here!
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
 CORS(app)
+
+bcrypt = Bcrypt(app)
 
 migrate = Migrate(app, db)
 
@@ -24,52 +33,73 @@ URL_PREFIX = '/api'
 #function for creating users
 @app.post(URL_PREFIX + '/users')
 def create_user():
-    pass
+    try:
+        new_user = User(
+            username = request.json['username'],
+            age = request.json['age']
+        )
+        new_user._hashed_password = bcrypt.generate_password_hash(request.json['password']).decode('utf-8')
+        db.session.add(new_user)
+        db.session.commit()
+        session["user_id"] = new_user.id
+        return new_user.to_dict(), 201
+    except Exception as e:
+        return { 'error': str(e) }, 406
 
 #functions for checking session
 @app.get(URL_PREFIX + "/check-session")
 def check_session():
-    pass
+    user = User.query.where(User.id == session['user_id']).first()
+    if user:
+        return user.to_dict(), 200
+    else:
+        return {}, 204
 
 #functuon for loging in users
 @app.post(URL_PREFIX + '/login')
 def login():
-    pass
+    user = User.query.where(User.username == request.json.get('username')).first()
+    if user and bcrypt.check_password_hash(user._hashed_password, request.json.get('password')):
+        session['user_id'] = user.id
+        return user.to_dict(), 201
+    else:
+        return {'error': 'username or password was invalid'}, 401
 
 #function for loging out users
 @app.delete(URL_PREFIX + '/logout')
 def logout():
-    pass
+    session.pop('user_id')
+    return {}, 204
 
 #function for getting users; USE POSTMAN
-@app.get('/users')
-def all_users():
-    return [user.to_dict() for user in User.query.all()], 200
+# @app.get('/users')
+# def all_users():
+#     return [user.to_dict() for user in User.query.all()], 200
 
 #function for getting users by id; USE POSTMAN
-@app.get('/users/<int:id>')
-def user_by_id(id):
-    user = User.query.where(User.id == id).first()
-    if user:
-        return user.to_dict(), 200
-    else:
-        return {'error': 'Not found'}, 404
+# @app.get('/users/<int:id>')
+# def user_by_id(id):
+#     user = User.query.where(User.id == id).first()
+#     if user:
+#         return user.to_dict(), 200
+#     else:
+#         return {'error': 'Not found'}, 404
     
 #function for pathing users; USE POSTMAN
-@app.patch('/users/<int:id>')
-def patch_user_by_id(id):
-    user = User.query.where(User.id == id).first()
-    if user:
-        for key in request.json.keys():
-            setattr(user, key, request.json[key])
-        db.session.add(user)
-        db.session.commit()
-        return user.to_dict(), 202
-    else:
-        return {'error': 'Not found'}, 404
+# @app.patch('/users/<int:id>')
+# def patch_user_by_id(id):
+#     user = User.query.where(User.id == id).first()
+#     if user:
+#         for key in request.json.keys():
+#             setattr(user, key, request.json[key])
+#         db.session.add(user)
+#         db.session.commit()
+#         return user.to_dict(), 202
+#     else:
+#         return {'error': 'Not found'}, 404
 
 #function for deleting users; USE POSTMAN
-@app.delete('/users/<int:id>')
+@app.delete(URL_PREFIX + '/users/<int:id>')
 def delete_user_by_id(id):
     user = User.query.where(User.id == id).first()
     if user:
