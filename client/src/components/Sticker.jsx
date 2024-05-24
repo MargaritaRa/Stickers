@@ -35,8 +35,6 @@ function Sticker({itemId, userId, name, price, image, category }) {
 
             {/* <CartFunction /> */}
 
-            <FavFunction />
-
             {/* <button>❤️</button> */}
 
         </article>

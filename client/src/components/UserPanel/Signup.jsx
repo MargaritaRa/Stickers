@@ -36,8 +36,6 @@ function Signup({setCurrentUser}){
     
     return(
         <form className="user-form" onSubmit={handleSubmit}>
-            
-            <h2>Signup</h2>
 
             <input type="text"
             onChange={e => setUsername(e.target.value)}

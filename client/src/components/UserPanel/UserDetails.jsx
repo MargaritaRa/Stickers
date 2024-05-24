@@ -6,8 +6,8 @@ function Userdetails({currentUser, setCurrentUser}){
     }
     return(
         <div className='user_details'>
-            <h2> {currentUser.name}</h2>
-            <button onClick={handleLogout}>Logout</button>
+            <h2 className='logout'> {currentUser.name}</h2>
+            <button className='btn-logout' onClick={handleLogout}>Logout</button>
 
         </div>
     )

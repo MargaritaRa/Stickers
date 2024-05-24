@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import UserPanel from './UserPanel';
-import NavBar from './NavBar';
+
 
 
 function App() {
@@ -23,10 +23,9 @@ function App() {
   },[])
 
   return (
-    <div className='App'>
+    <div className='app'>
 
       <Header />
-      <NavBar currentUser={currentUser}/>
       <UserPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Outlet />
       <Footer />
