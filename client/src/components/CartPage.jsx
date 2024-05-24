@@ -1,15 +1,7 @@
-<<<<<<< HEAD
+
 import React, {useState, useEffect}  from "react"
 import Sticker from "./Sticker"
-=======
 import React from "react"
-// import ButtonGroup from "@material-ui/core/ButtonGroup"
-// import Badge from "@material-ui/core/Badge";
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import Button from "@material-ui/core/Button";
-// import AddIcon from "@material-ui/icons/Add";
-// import RemoveIcon from "@material-ui/icons/Remove";
->>>>>>> ccb39db0f98fe368d5aff4279e73bd256d5f07b4
 
 
 export default function CartPage(){
@@ -44,14 +36,10 @@ export default function CartPage(){
 
     return (
         <div className="cart">
-<<<<<<< HEAD
             <h1>This is Cart Page</h1>
 
         {mappedCartItems} 
             
-=======
-                <h1>This is Cart Page</h1>
->>>>>>> ccb39db0f98fe368d5aff4279e73bd256d5f07b4
 
         </div>
     )
