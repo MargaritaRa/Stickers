@@ -38,7 +38,7 @@ function Signup({setCurrentUser}){
             placeholder='username'
             />
 
-            <input type="password"
+            <input type="text"
             onChange={e => setPassword(e.target.value)}
             value={password}
             placeholder="password"

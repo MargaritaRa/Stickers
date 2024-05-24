@@ -5,17 +5,47 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
+import {Link} from "react-router-dom"
 
 
 export default function CartFunction(){
     const [itemCount, setItemCount]=React.useState(0)
 
+    const handleClickAdd = ()=>{
+        setItemCount(itemCount + 1);
+
+        fetch('api/cart/add',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                itemId: item_id,
+                userId: user_id,
+                quantity:1,
+            })
+        })
+        .then(response =>{
+            if (response.ok){
+                res.json()
+            } else {
+                alert('Failed to add to cart table!')
+            }
+        })
+        // .catch(error=>{
+            
+        // })   
+    }
+
     return (
         <div className="cart">
-                
-                <Badge color="secondary" badgeContent={itemCount}>
-                    <ShoppingCartIcon />{" "}
-                </Badge>
+                <Link to="/cart">
+                    <Badge  
+                    color="secondary" badgeContent={itemCount}>
+                        <ShoppingCartIcon />{" "}
+                    </Badge>
+                </Link>
                 <ButtonGroup>
                     <Button
                         onClick={() => {
@@ -26,9 +56,7 @@ export default function CartFunction(){
                         <RemoveIcon fontSize="small" />
                     </Button>
                     <Button
-                        onClick={() => {
-                            setItemCount(itemCount + 1);
-                        }}
+                        onClick={handleClickAdd}
                     >
                         {" "}
                         <AddIcon fontSize="small" />

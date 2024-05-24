@@ -20,8 +20,8 @@ function Sticker({ name, price, image, category }) {
                 <h4 className="category">{category}</h4>
             </div>
 
-            <button>Add to cart</button>
-            <button>❤️</button>
+            {/* <button>Add to cart</button>
+            <button>❤️</button> */}
 
             <CartFunction />
 

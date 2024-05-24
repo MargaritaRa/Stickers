@@ -8,7 +8,7 @@ export default function FavFunction({item}){
     }
 
     const [favs, setFavs] = useState([])
-    const toggleFav = (items)=>{
+    const toggleFav = ()=>{
         if(favs.includes(item)){
             setFavs(favs.filter(fav=>fav!== item))
         } else {

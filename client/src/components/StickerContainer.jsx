@@ -20,7 +20,7 @@ function StickerContainer(){
 
         <div>
             <div>Sticker Container</div>
-            <Sticker/>
+            {/* <Sticker/> */}
      
      
         {mappedItems}
