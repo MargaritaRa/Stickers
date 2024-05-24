@@ -18,8 +18,11 @@ function StickerContainer(){
     return (
 
         <div>
+      
         {mappedItems}
+
         </div>
+
     )
 }
 

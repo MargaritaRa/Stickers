@@ -1,4 +1,5 @@
-// import CartFunction from "./CartFunction";
+import CartFunction from "./CartFunction";
+
 
 function Sticker({ name, price, image, category }) {
     return (
@@ -22,6 +23,10 @@ function Sticker({ name, price, image, category }) {
             <button>❤️</button>
 
             {/* <CartFunction /> */}
+
+            <FavFunction />
+
+            {/* <button>❤️</button> */}
 
         </article>
     );
