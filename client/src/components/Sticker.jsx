@@ -1,7 +1,18 @@
-import CartFunction from "./CartFunction";
+// import CartFunction from "./CartFunction";
 
+import { DragHandle } from "@material-ui/icons";
 
-function Sticker({ name, price, image, category }) {
+function Sticker({itemId, userId, name, price, image, category }) {
+
+    function handleClick(event) {
+        event.preventDefault();
+        fetch('/api/carts', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({userId, itemId})
+        })
+    }
+
     return (
 
         <article className="stickerPost">
@@ -19,7 +30,7 @@ function Sticker({ name, price, image, category }) {
                 <h4 className="category">{category}</h4>
             </div>
 
-            <button>Add to cart</button>
+            <button onClick={event => handleClick(event.target.value)}>Add to cart</button>
             <button>❤️</button>
 
             {/* <CartFunction /> */}
