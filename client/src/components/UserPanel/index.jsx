@@ -6,7 +6,7 @@ function UserPanel({currentUser, setCurrentUser}){
 
     if (!currentUser){
         return(
-            <div>
+            <div className='login-signup-container'>
 
                 <Signup setCurrentUser={setCurrentUser}/>
                 <br />

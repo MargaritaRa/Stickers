@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Login(){
+function Login({setCurrentUser}){
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -9,39 +9,42 @@ function Login(){
     function handleSubmit(e){
         e.preventDefault()
 
-        fetch('api/login',{
+        fetch('/api/login', {
             method: 'POST',
-            headers:{'Content-Type':'application/json', 'Accept':'application/json'},
-            body:JSON.stringify({username, password})
-            .then(res=>{
-                if(res.ok){
-                    res.json()
-                    .then(user=>setCurrent(user))
-                }else{
-                    alert('Invalid username or password')
-                }
-            })
-        })
-    }
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({username, password})
+          }).then(response => {
+            if(response.ok) {
+              response.json()
+              .then(user => setCurrentUser(user))
+            }else{
+              alert('invalis username or password')
+            }
+          })
+        }
 
     return (
         <div>
-            <form className='form' onSubmit={handleSubmit}>
+            <form className='user-form' onSubmit={handleSubmit}>
+
                 <h2>Login</h2>
 
-                <input type="text" 
-                onChange = {e=>setUsername(e.target.value)}
+                <input type="text"
+                onChange={e => setUsername(e.target.value)}
                 value={username}
                 placeholder='username'
                 />
 
-                <input type="password"
-                onChange = {e=>setPassword(e.target.value)}
+                <input type="text"
+                onChange = {e => setPassword(e.target.value)}
                 value={password}
-                placeholder='password'/>
+                placeholder='password'
+                />
 
-                <input type="submit"
-                value='Login'/>
+                <input 
+                type="submit"
+                value='Login'
+                />
                 
             </form>
 
