@@ -1,14 +1,14 @@
 import React from "react"
-import {Outlet} from 'react-router-dom'
 import StickerContainer from "./StickerContainer"
 
-
-export default function Home(){
+export default function Home({userId}){
     return (
         <div className="home">
             <h1>This is Home Page</h1>
-            <StickerContainer />
-            <Outlet  />
+
+            <StickerContainer uderId={userId}/>
+            
+
         </div>
     )
 }

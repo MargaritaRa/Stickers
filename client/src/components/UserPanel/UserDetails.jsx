@@ -6,7 +6,7 @@ function Userdetails({currentUser, setCurrentUser}){
     }
     return(
         <div className='user_details'>
-            <h2>Welcome {currentUser.name}!</h2>
+            <h2> {currentUser.name}</h2>
             <button onClick={handleLogout}>Logout</button>
 
         </div>

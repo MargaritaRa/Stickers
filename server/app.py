@@ -50,7 +50,7 @@ def create_user():
 #functions for checking session
 @app.get(URL_PREFIX + "/check-session")
 def check_session():
-    user = User.query.where(User.id == session['user_id']).first()
+    user = User.query.where(User.id == session.get('user_id')).first()
     if user:
         return user.to_dict(), 200
     else:

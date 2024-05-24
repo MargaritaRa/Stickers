@@ -1,8 +1,7 @@
 import React, { useState, useEffect} from "react"
 import Sticker from "./Sticker"
-import CartFunction from "./CartFunction"
 
-function StickerContainer(){
+function StickerContainer({userId}){
 
     const URL = '/api/items'
     const[items, setItems] = useState([])
@@ -14,7 +13,7 @@ function StickerContainer(){
         .catch(error => alert(error))
     }, [])
 
-    const mappedItems = items.map(item => ( <Sticker key={item.id} name={item.name} price={item.price} image={item.image} category={item.category} />))
+    const mappedItems = items.map(item => ( <Sticker key={item.id} itemId={item.id} userId={userId} name={item.name} price={item.price} image={item.image} category={item.category} />))
 
     return (
 
@@ -25,10 +24,8 @@ function StickerContainer(){
      
         {mappedItems}
 
-        {/* <button>Add to cart</button> */}
+        </div>
 
-
-       </div>
     )
 }
 

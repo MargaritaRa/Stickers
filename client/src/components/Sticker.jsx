@@ -1,11 +1,21 @@
-import CartFunction from "./CartFunction";
-import FavFunction from "./FavFunction"
+// import CartFunction from "./CartFunction";
 
-function Sticker({ name, price, image, category }) {
+import { DragHandle } from "@material-ui/icons";
+
+function Sticker({itemId, userId, name, price, image, category }) {
+
+    function handleClick(event) {
+        event.preventDefault();
+        fetch('/api/carts', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({userId, itemId})
+        })
+    }
+
     return (
 
         <article className="stickerPost">
-             <h4>🍭 This is A Sticker Item</h4>
 
             <div className="sticker-img">
                 <img src={image} alt={name} />
