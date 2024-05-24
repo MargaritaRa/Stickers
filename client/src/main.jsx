@@ -9,8 +9,8 @@ import UserPanel from './components/UserPanel/index.jsx'
 import CartPage from './components/CartPage.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Sticker from './components/Sticker.jsx'
+import ShopNow from './components/ShopNow.jsx'
 
-import FavPage from './components/FavPage.jsx'
 
 
 // CSS
@@ -32,13 +32,8 @@ const routes = [
         errorElement: <ErrorPage />
       },
       {
-        path:'userPanel',
-        element: <UserPanel />,
-        errorElement: <ErrorPage />
-      },
-      {
-        path: 'fav',
-        element: <FavPage />,
+        path:'shopnow',
+        element: <ShopNow />,
         errorElement: <ErrorPage />
       },
       {
@@ -52,6 +47,11 @@ const routes = [
             errorElement: <ErrorPage />
           }
         ]
+      },
+      {
+        path:'userPanel',
+        element: <UserPanel />,
+        errorElement: <ErrorPage />
       }
     ]
   }

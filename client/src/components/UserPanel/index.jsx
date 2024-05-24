@@ -7,11 +7,14 @@ function UserPanel({currentUser, setCurrentUser}){
     if (!currentUser){
         return(
             <div className='login-signup-container'>
-
-                <Signup setCurrentUser={setCurrentUser}/>
-                <br />
-                <Login setCurrentUser={setCurrentUser}/>
-
+                <div className='login-container'>
+                <h2>Login</h2>
+                <Login setCurrentUser={setCurrentUser} />
+            </div>
+            <div className='signup-container'>
+                <h2>Signup</h2>
+                <Signup setCurrentUser={setCurrentUser} />
+            </div>
             </div>
         )
     } else {

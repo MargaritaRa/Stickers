@@ -27,8 +27,6 @@ function Login({setCurrentUser}){
         <div>
             <form className='user-form' onSubmit={handleSubmit}>
 
-                <h2>Login</h2>
-
                 <input type="text"
                 onChange={e => setUsername(e.target.value)}
                 value={username}
