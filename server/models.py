@@ -36,6 +36,7 @@ class User (db.Model, SerializerMixin):
         if len(value) < 8:
             raise ValueError('Password must be at least 8 characters long!')
         return value
+    
 
     @validates('age')
     def validate_age(self, key, value):
@@ -43,6 +44,8 @@ class User (db.Model, SerializerMixin):
             return value
         else:
             raise ValueError('Must be at least 13 years old!')
+        
+    serialize_rules = ('-carts.user',)
 
 class Items (db.Model, SerializerMixin):
     __tablename__ = "items"
@@ -55,6 +58,9 @@ class Items (db.Model, SerializerMixin):
 
     carts = db.relationship('Carts', back_populates='item')
 
+    serialize_rules = ('-carts.item',)
+
+
 class Carts (db.Model, SerializerMixin):
     __tablename__ = "carts"
 
@@ -64,6 +70,10 @@ class Carts (db.Model, SerializerMixin):
 
     user = db.relationship("User", back_populates="carts")
     item = db.relationship("Items", back_populates="carts")
+
+    
+    serialize_rules = ('-item.carts', '-user.carts')
+
 
 
 
