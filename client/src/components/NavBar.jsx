@@ -1,7 +1,7 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 
 
-export default function NavBar(){
+export default function NavBar({ currentUser }){
     return(
         
         <div>
@@ -15,14 +15,15 @@ export default function NavBar(){
                     <NavLink className={({isActive})=>isActive? "active":""} to='/fav'>Favorites</NavLink>
 
                     <br />
-
-                    <NavLink className={({isActive})=>isActive? "active":""} to='/userPanel'>Login</NavLink>
-
+                    <div className="user-info">
+                        {currentUser ? (
+                            <span>Welcome, {currentUser.username}!</span>
+                        ) : (
+                            <Link to="/userPanel">Login</Link>
+                        )}
+                    </div>
                 </h3>
-
             </nav>
-
-
         </div>
     )
 }

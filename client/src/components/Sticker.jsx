@@ -1,11 +1,10 @@
 import CartFunction from "./CartFunction";
-import FavFunction from "./FavFunction"
+
 
 function Sticker({ name, price, image, category }) {
     return (
 
         <article className="stickerPost">
-             <h4>🍭 This is A Sticker Item</h4>
 
             <div className="sticker-img">
                 <img src={image} alt={name} />
@@ -23,7 +22,7 @@ function Sticker({ name, price, image, category }) {
             <button>Add to cart</button>
             <button>❤️</button>
 
-            <CartFunction />
+            {/* <CartFunction /> */}
 
             <FavFunction />
 

@@ -4,6 +4,7 @@ function Signup({setCurrentUser}){
     //state
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState ('')
+    const [age, setAge] = useState(0)
     
     //Event //
     
@@ -12,19 +13,25 @@ function Signup({setCurrentUser}){
 
         fetch('/api/users', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Accept':'application/json'},
-            body: JSON.stringify({username, password})
-        })
-        .then(res => {
-            if(res.ok) {
-                res.json()
-                .then(newUser => setCurrentUser(newUser) )
-            }else {
-                alert('Signup unsuccesful')
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({username, password, age})
+          })
+          .then(response => {
+            if (response.ok) {
+              response.json()
+              .then(newUser => setCurrentUser(newUser) )
+            } else {
+              alert("Signup unsuccessful")
             }
-        })
-    }
+          })
+        }
 
+    // this coverts the string to int
+    const handleAgeChange = (e) => {
+        const value = e.target.value;
+        setAge(value === '' ? '' : parseInt(value, 10));
+    };
+    
     //Render
     
     return(
@@ -35,16 +42,23 @@ function Signup({setCurrentUser}){
             <input type="text"
             onChange={e => setUsername(e.target.value)}
             value={username}
-            placeholder='username'
+            placeholder='Username'
             />
 
             <input type="password"
             onChange={e => setPassword(e.target.value)}
             value={password}
-            placeholder="password"
+            placeholder="Password"
             />
 
-            <input type="submit"
+            <input type="number"
+            onChange = {handleAgeChange}
+            value={age}
+            placeholder='Age'
+            />
+
+            <input 
+            type="submit"
             value="signup"
             />
         </form>
