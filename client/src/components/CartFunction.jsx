@@ -9,20 +9,22 @@ import {Link} from "react-router-dom"
 
 
 export default function CartFunction(){
-    const [itemCount, setItemCount]=React.useState(0)
+    const [itemCount, setItemCount]= useState(0)
+    const [userId, setUserId] = useState ('')
+    const [itemId, setItemId] = useState ('')
 
     const handleClickAdd = ()=>{
         setItemCount(itemCount + 1);
 
-        fetch('api/cart/add',{
+        fetch('/api/carts',{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                itemId: item_id,
-                userId: user_id,
+                item_id: itemId,
+                user_id: userId,
                 quantity:1,
             })
         })
@@ -32,10 +34,15 @@ export default function CartFunction(){
             } else {
                 alert('Failed to add to cart table!')
             }
+        })  
+        .then(data => {
+            // Optionally handle the parsed data here
+            console.log('Item added to cart:', data);
+          })
+        .catch(error =>{
+            console.error('Failed to add to cart: ', error)
+            alert('Failed to add to cart table!')
         })
-        // .catch(error=>{
-            
-        // })   
     }
 
     return (
