@@ -27,7 +27,7 @@ function App() {
 
       <Header />
       <NavBar currentUser={currentUser}/>
-      <UserPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <UserPanel currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <Outlet />
       <Footer />
         

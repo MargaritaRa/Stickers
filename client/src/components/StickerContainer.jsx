@@ -18,10 +18,7 @@ function StickerContainer({userId}){
     return (
 
         <div>
-            <div>Sticker Container</div>
-            {/* <Sticker/> */}
-     
-     
+
         {mappedItems}
 
         </div>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -8,10 +8,12 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import {Link} from "react-router-dom"
 
 
-export default function CartFunction(){
+export default function CartFunction({itemId}){
+    console.log("itemId",itemId)
+    // console.log("userId",userId)
     const [itemCount, setItemCount]= useState(0)
-    const [userId, setUserId] = useState ('')
-    const [itemId, setItemId] = useState ('')
+    // const [userId, setUserId] = useState ('')
+    // const [itemId, setItemId] = useState ('')
 
     const handleClickAdd = ()=>{
         setItemCount(itemCount + 1);
@@ -24,12 +26,11 @@ export default function CartFunction(){
             },
             body: JSON.stringify({
                 item_id: itemId,
-                user_id: userId,
                 quantity:1,
             })
         })
-        .then(response =>{
-            if (response.ok){
+        .then(res =>{
+            if (res.ok){
                 res.json()
             } else {
                 alert('Failed to add to cart table!')
@@ -48,7 +49,7 @@ export default function CartFunction(){
     return (
         <div className="cart">
                 <Link to="/cart">
-                    <Badge  
+                    <Badge overlap="rectangular" 
                     color="secondary" badgeContent={itemCount}>
                         <ShoppingCartIcon />{" "}
                     </Badge>

@@ -1,23 +1,18 @@
 
 import React, {useState, useEffect}  from "react"
 import Sticker from "./Sticker"
-import React from "react"
+
 
 
 export default function CartPage(){
 
+    const [error, setError] = useState(null)
     const [cartItems, setCartItems] = useState([])
     useEffect(()=>{
-        fetch('/api/cart',{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-        }) 
+        fetch('/api/carts') 
         .then(res=>{
             if (res.ok){
-                res.json()
+                return res.json()
             }else{
                 throw new Error ('Failed to fetch cart items')
             }
@@ -29,9 +24,16 @@ export default function CartPage(){
             setError(error.message)
         })
     }, [])
+    console.log("cartitems: ",cartItems)
         
 
-    const mappedCartItems = cartItems.map(item => ( <Sticker key={item.id} name={item.name} price={item.price} image={item.image} category={item.category} />))
+    const mappedCartItems = cartItems.map(cartitem => ( <Sticker 
+        key={cartitem.id} 
+        name={cartitem.item.name} 
+        price={cartitem.item.price} 
+        image={cartitem.item.image} 
+        category={cartitem.item.category}
+        itemId={cartitem.item.id} />))
 
 
     return (
