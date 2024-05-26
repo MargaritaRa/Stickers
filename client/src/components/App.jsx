@@ -26,7 +26,6 @@ function App() {
     <div className='app'>
 
       <Header />
-      <NavBar currentUser={currentUser}/>
       <UserPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Outlet />
       <Footer />
