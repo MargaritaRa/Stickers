@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react"
-import Sticker from "./Sticker"
+import SearchBar from "./SearchBar"
 
-function StickerContainer({userId}){
+function StickerContainer({}){
 
     const URL = '/api/items'
     
@@ -14,16 +14,10 @@ function StickerContainer({userId}){
         .catch(error => alert(error))
     }, [])
 
-    const mappedItems = items.map(item => ( <Sticker key={item.id} itemId={item.id} userId={userId} name={item.name} price={item.price} image={item.image} category={item.category} />))
-
     return (
-
-        <section className="sticker">
-            <div className="sticker-container">
-                {mappedItems}
-            </div>
-        </section>
-        
+        <div >
+            <SearchBar items ={items}/>   
+        </div>
     )
 }
 
