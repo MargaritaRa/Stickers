@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, request, session
+from flask import Flask, request, request, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -128,10 +128,14 @@ def delete_user_by_id(id):
 @app.post(URL_PREFIX + '/carts')
 def post_items_to_cart():
     try:
+
+        
         item = Carts(
-            user_id = request.json.get('user_id'),
+            user_id = session.get('user_id'),
             item_id = request.json.get('item_id')
         )
+       
+
         db.session.add(item)
         db.session.commit()
         return item.to_dict(), 201
@@ -141,11 +145,12 @@ def post_items_to_cart():
         return {"error": str(error)}
     
 #function for getting all items pertaining to a specific user
-@app.get(URL_PREFIX + '/carts/<int:id>')
-def cart_items_by_user_id(id):
-    user_cart = Carts.query.where(Carts.user_id == id).first()
+@app.get(URL_PREFIX + '/carts')
+def cart_items_by_user_id():
+    # user_cart = Carts.query.where(Carts.user_id == id).first()
+    user_cart = Carts.query.where(Carts.user_id == session.get('user_id')).all()
     if user_cart:
-        return user_cart.to_dict(), 200
+        return [cart.to_dict() for cart in user_cart], 200
     else:
         return {'error': 'Not found'}, 404
 
