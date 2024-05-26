@@ -20,10 +20,8 @@ function UserPanel() {
           <Signup setCurrentUser={setCurrentUser} />
         </div>
       </div>
-    );
-  } else {
-    return <UserDetails currentUser={currentUser} setCurrentUser={setCurrentUser} />;
-  }
+    )
+  } 
 }
 
 export default UserPanel;

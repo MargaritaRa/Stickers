@@ -171,6 +171,7 @@ header {
   display: grid;
   grid-template-columns: repeat(5 , 1fr);
   gap: 4rem;
+ 
 }
 
 img{
@@ -256,3 +257,28 @@ img{
 .btn-delete:hover {
   background-color: #ff1c1c;
 }
+
+.searchcontainer{
+  display: flex;
+  align-items: center;
+  margin-left:30px;
+}
+
+.searchinput{
+  margin-left:10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(15, 80, 116);
+  border: 0.7px solid ;
+  border-radius:16px;
+  padding-left: 12px;
+  height: 30px;
+  width: 300px;
+  background-color: rgba(255, 240, 174, 0.35);
+}
+.searchinput:focus,
+.searchinput:active{
+  outline:0.7px invert ;
+  color: rgb(17, 44, 103)
+  
+}
+
