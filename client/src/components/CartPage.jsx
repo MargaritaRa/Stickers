@@ -8,6 +8,7 @@ export default function CartPage(){
 
     const [error, setError] = useState(null)
     const [cartItems, setCartItems] = useState([])
+
     useEffect(()=>{
         fetch('/api/carts') 
         .then(res=>{
@@ -25,24 +26,44 @@ export default function CartPage(){
         })
     }, [])
     console.log("cartitems: ",cartItems)
+
+    const handleDelete = (itemId) => {
+        fetch(`/api/carts/${itemId}`, {
+          method: 'DELETE',
+        })
+          .then(res => {
+            if (res.ok) {
+              setCartItems(prevItems => prevItems.filter(item => item.item.id !== itemId));
+            } else {
+              throw new Error('Failed to delete item');
+            }
+          })
+          .catch(error => {
+            setError(error.message);
+          });
+      };
         
 
-    const mappedCartItems = cartItems.map(cartitem => ( <Sticker 
-        key={cartitem.id} 
-        name={cartitem.item.name} 
-        price={cartitem.item.price} 
-        image={cartitem.item.image} 
-        category={cartitem.item.category}
-        itemId={cartitem.item.id} />))
+      const mappedCartItems = cartItems.map(cartItem => (
+        <Sticker
+          key={cartItem.id}
+          name={cartItem.item.name}
+          price={cartItem.item.price}
+          image={cartItem.item.image}
+          category={cartItem.item.category}
+          itemId={cartItem.item.id}
+          onDelete={handleDelete}
+          inCart={true}
+        />
+      ));
 
 
-    return (
-        <div className="cart">
-            <h1>This is Cart Page</h1>
-
-        {mappedCartItems} 
-            
-
+      return (
+        <div className="sticker-container">
+          <h1 className="cartPage">This is Cart Page</h1>
+          {error && <p className="error">{error}</p>}
+          {mappedCartItems}
         </div>
-    )
-}
+      );
+    }
+    

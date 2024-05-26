@@ -1,12 +1,15 @@
 import React from "react"
-import StickerContainer from "./StickerContainer"
 
-export default function Home(){
+
+export default function Home({ currentUser }){
+    console.log('currentUser in Home:', currentUser);
     return (
         <div className="home">
-            <StickerContainer />
-            
-
+          {currentUser && (
+            <div className="user-info">
+              <span>Welcome, {currentUser.username}!</span>
+            </div>
+          )}
         </div>
-    )
-}
+      );
+    }

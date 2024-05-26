@@ -18,6 +18,7 @@ import './index.css'
 
 // React-Router-dom
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { CurrentUserProvider } from './components/CurrentUserContext.jsx';
 
 //routes
 const routes = [
@@ -26,41 +27,38 @@ const routes = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-        errorElement: <ErrorPage />
+      { index: true, 
+        element: <Home />, 
+        errorElement: <ErrorPage /> 
       },
-      {
-        path:'shopnow',
-        element: <ShopNow />,
-        errorElement: <ErrorPage />
+      { path: 'shopnow', 
+      element: <ShopNow />, 
+      rrorElement: <ErrorPage /> 
       },
-      {
-        path:'cart',
-        element: <CartPage />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path:'sticker/:id',
-            element: <Sticker />,
-            errorElement: <ErrorPage />
-          }
-        ]
+      { path: 'cart', 
+      element: <CartPage />, 
+      errorElement: <ErrorPage />, 
+      children: 
+        [{ path: 'sticker/:id', 
+        element: <Sticker />, 
+        errorElement: <ErrorPage /> 
+        }] 
       },
-      {
-        path:'userPanel',
-        element: <UserPanel />,
-        errorElement: <ErrorPage />
-      }
-    ]
-  }
-]
+      { path: 'userPanel', 
+      element: <UserPanel />, 
+      errorElement: <ErrorPage /> 
+    },
+    ],
+  },
+];
+
 //router
 const router = createBrowserRouter(routes)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+    <CurrentUserProvider>
+      <RouterProvider router={router} />
+    </CurrentUserProvider>
+  </React.StrictMode>
 )
