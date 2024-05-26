@@ -1,17 +1,16 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 export default function Header(){
 return(
     <header>
-        <h1>
-            <span className="logo" role="img">
-            🧃
-            </span>
-            Stickers 
-            <span className="logo" role="img">
-            🧃
-            </span>
-        </h1>
+        <span className="logo" role="img">
+            <h1>🧃Stickers🧃</h1> 
+        </span>
+        <div>
+            <NavBar/>
+        </div>
+        
 
     </header>
 )

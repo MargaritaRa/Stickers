@@ -5,16 +5,14 @@ export default function NavBar({ currentUser }){
     return(
         
         <div>
-            <nav className ='nav'>
-                <h3>
+            <nav>
+            <div className="container nav-container">
                     <NavLink className={({isActive})=>isActive? "active":""} to='/'>Home</NavLink>
-                    <br />
+                    
                     <NavLink className={({isActive})=>isActive? "active":""} to='/cart'>Cart</NavLink>
-                    <br />
-
-                    <NavLink className={({isActive})=>isActive? "active":""} to='/fav'>Favorites</NavLink>
-
-                    <br />
+                   
+                    <NavLink className={({isActive})=>isActive? "active":""} to='/shopnow'>ShopNow</NavLink>
+                  
                     <div className="user-info">
                         {currentUser ? (
                             <span>Welcome, {currentUser.username}!</span>
@@ -22,7 +20,8 @@ export default function NavBar({ currentUser }){
                             <Link to="/userPanel">Login</Link>
                         )}
                     </div>
-                </h3>
+                    
+                </div>
             </nav>
         </div>
     )
