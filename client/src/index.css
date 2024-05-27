@@ -282,8 +282,59 @@ img{
   
 }
 
-.payment{
-  background-color: white;
-  color: black;
+/* Payment form styling */
+.payment {
+  background-color: #b4f2d6; /* Lighter green */
+  color: #333;
+  padding: 20px;
+  border-radius: 12px; /* Adjusted border radius */
+  border: 4px solid #1c8b5d; /* Darker green border */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
 }
 
+.payment input {
+  padding: 12px; /* Adjusted padding */
+  margin-bottom: 20px;
+  border: 2px solid #ddd; /* Thicker border */
+  border-radius: 8px; /* Adjusted border radius */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment button {
+  background-color: #1c8b5d; /* Darker green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px; /* Adjusted padding */
+  cursor: pointer;
+  font-size: 20px; /* Adjusted font size */
+  transition: background-color 0.3s;
+}
+
+.payment button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.payment button:hover {
+  background-color: #165f41; /* Darker shade of green on hover */
+}
+
+/* Payment form input label */
+.payment label {
+  font-family: "Kite One", sans-serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Payment form input placeholder */
+.payment input::placeholder {
+  color: #888;
+}
+
+/* Payment form input focus style */
+.payment input:focus {
+  outline: none;
+  border-color: #1c8b5d; /* Darker green on focus */
+}
