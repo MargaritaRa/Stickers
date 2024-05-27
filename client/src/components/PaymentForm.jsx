@@ -21,7 +21,7 @@ function PaymentForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='payment' onSubmit={handleSubmit}>
       <CardElement />
       <button type="submit" disabled={!stripe}>Pay</button>
     </form>
