@@ -7,9 +7,13 @@ from flask_cors import CORS
 import sqlalchemy
 from flask_bcrypt import Bcrypt
 import os
-import stripe
 
-from models import db, User, Carts, Items # import your models here!
+# stripe secret key #
+# import stripe
+# stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+
+
+from models import db, User, Carts, Items
 
 from dotenv import load_dotenv
 
@@ -20,7 +24,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-stripe.api_key = 'sk_test_51PL4oZ1drKeT8jIsYKYk1RRwyTPpe1KNucUpHYnG8W1UiGjYG8r5Df8rcf94RvjCLJ6P8VZNE0D6y7shQOvFPKOx00WkDTcpNQ'
+
 CORS(app)
 
 bcrypt = Bcrypt(app)
@@ -222,7 +226,7 @@ def patch_item_by_id(id):
     else:
         return {'error': 'Not found'}, 404
     
-#payment route 
+   
 @app.post(URL_PREFIX + '/create-payment-intent')
 def create_payment():
     try:
@@ -247,6 +251,9 @@ def create_payment():
     
     except Exception as e:
         return {'error': str(e)}, 403
+
+
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
