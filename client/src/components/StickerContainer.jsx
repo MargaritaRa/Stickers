@@ -10,7 +10,10 @@ function StickerContainer({}){
     useEffect(() => {
         fetch(URL)
         .then(res => res.json())
-        .then(data => setItems(data))
+        .then(data => {
+            console.log("Items from API:", data);
+            setItems(data);
+          })
         .catch(error => alert(error))
     }, [])
 

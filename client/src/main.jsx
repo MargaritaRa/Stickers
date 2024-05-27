@@ -10,7 +10,7 @@ import CartPage from './components/CartPage.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Sticker from './components/Sticker.jsx'
 import ShopNow from './components/ShopNow.jsx'
-
+import PaymentPage from './components/PaymentPage.jsx'
 
 
 // CSS
@@ -27,30 +27,37 @@ const routes = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, 
+      { 
+        index: true, 
         element: <Home />, 
         errorElement: <ErrorPage /> 
       },
-      { path: 'shopnow', 
-      element: <ShopNow />, 
-      rrorElement: <ErrorPage /> 
-      },
-      { path: 'cart', 
-      element: <CartPage />, 
-      errorElement: <ErrorPage />, 
-      children: 
-        [{ path: 'sticker/:id', 
-        element: <Sticker />, 
+      { 
+        path: 'shopnow', 
+        element: <ShopNow />, 
         errorElement: <ErrorPage /> 
-        }] 
       },
-      { path: 'userPanel', 
-      element: <UserPanel />, 
-      errorElement: <ErrorPage /> 
-    },
+      { 
+        path: 'cart', 
+        element: <CartPage />, 
+        errorElement: <ErrorPage />, 
+        children: [
+          { 
+            path: 'payment', 
+            element: <PaymentPage />, 
+            errorElement: <ErrorPage /> 
+          }
+        ],
+      },
+      { 
+        path: 'userPanel', 
+        element: <UserPanel />, 
+        errorElement: <ErrorPage /> 
+      },
     ],
   },
 ];
+
 
 //router
 const router = createBrowserRouter(routes)
