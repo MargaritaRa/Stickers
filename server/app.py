@@ -20,8 +20,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-stripe.api_key = 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
-
+stripe.api_key = 'sk_test_51PL4oZ1drKeT8jIsYKYk1RRwyTPpe1KNucUpHYnG8W1UiGjYG8r5Df8rcf94RvjCLJ6P8VZNE0D6y7shQOvFPKOx00WkDTcpNQ'
 CORS(app)
 
 bcrypt = Bcrypt(app)
