@@ -7,6 +7,7 @@ from flask_cors import CORS
 import sqlalchemy
 from flask_bcrypt import Bcrypt
 import os
+import stripe
 
 from models import db, User, Carts, Items # import your models here!
 
@@ -19,6 +20,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+stripe.api_key = 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
 
 CORS(app)
 
@@ -220,6 +222,32 @@ def patch_item_by_id(id):
         return item.to_dict(), 202
     else:
         return {'error': 'Not found'}, 404
+    
+#payment route 
+@app.post(URL_PREFIX + '/create-payment-intent')
+def create_payment():
+    try:
+        user_id = request.json.get('user_id')
+
+        if not user_id:
+            return {'error': 'User ID is required'}, 400
+
+        user = User.query.get(user_id)
+        if not user:
+            return {'error': 'User not found'}, 404
+
+        # total amount
+        total_amount = sum(cart_item.item.price for cart_item in user.carts)
+
+        # paymentintent
+        intent = stripe.PaymentIntent.create(
+            amount=total_amount * 100,  # stripe requires it to be in cents
+            currency='usd'
+        )
+        return {"client_secret": intent['client_secret']}, 200
+    
+    except Exception as e:
+        return {'error': str(e)}, 403
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

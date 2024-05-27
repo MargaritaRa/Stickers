@@ -1,6 +1,8 @@
 
 import React, {useState, useEffect}  from "react"
 import Sticker from "./Sticker"
+import PaymentForm from './PaymentForm';
+
 
 
 
@@ -63,7 +65,9 @@ export default function CartPage(){
           <h1 className="cartPage">This is Cart Page</h1>
           {error && <p className="error">{error}</p>}
           {mappedCartItems}
+          <PaymentForm />
         </div>
       );
     }
     
+     
