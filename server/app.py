@@ -139,11 +139,11 @@ def post_items_to_cart():
             user_id = session.get('user_id'),
             item_id = request.json.get('item_id')
         )
-       
 
         db.session.add(item)
         db.session.commit()
         return item.to_dict(), 201
+    
     except sqlalchemy.exc.IntegrityError as error:
         return {"error": "Invalid data"}, 400
     except ValueError as error:

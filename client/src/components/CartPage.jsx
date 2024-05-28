@@ -60,13 +60,15 @@ export default function CartPage(){
 
 
       return (
-        <div className="sticker-container">
+        <div >
             <h1 className="cartPage">Your Cart:</h1>
-            {error && <p className="error">{error}</p>}
-            {mappedCartItems}
             <Link to="/payment">
                 <button className="btn-process">Proceed to Payment</button>
             </Link>
+            <div className="sticker-container">
+                {error && <p className="error">{error}</p>}
+                {mappedCartItems}
+            </div>
         </div>
       );
     }
