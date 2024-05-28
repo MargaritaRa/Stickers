@@ -12,9 +12,9 @@ export default function Header() {
     <header>
       <div className="header-content">
         <div className="logo" role="img">
-        <Link to="./">
-          <h1 >🧃Stickers🧃</h1>
-        </Link>
+            <Link className="logo-h1" to="./">
+            <h1 >🧃Stickers🧃</h1>
+            </Link>
         </div>
         <NavBar currentUser={currentUser} />
         {currentUser && (

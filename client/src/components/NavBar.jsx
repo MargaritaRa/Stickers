@@ -16,7 +16,7 @@ export default function NavBar({ currentUser }){
                     
                     <div className="user-info">
                         {currentUser ? (
-                            <span className="nav-link">Welcome, {currentUser.username}!</span>
+                            <span className="welcome">Welcome, {currentUser.username}!</span>
                         ) : (
                             <Link className="nav-link" to="/userPanel">Login</Link>
                         )}

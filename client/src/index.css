@@ -51,6 +51,7 @@ header {
   margin: 0;
   background-color: #5bc5a9;
   color: #fff0ae;
+
 }
 
 
@@ -282,9 +283,20 @@ img{
   font-family: "Kite One", sans-serif;
 }
 
+.welcome{
+  text-decoration: none;
+  color: #fff0ae;
+  font-family: "Kite One", sans-serif;
+  margin-left: 2rem;
+  display: flex; /* Use Flexbox for alignment */
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-start; /* Align children to the start of the flex container */
+}
+
 .nav-link:hover, .nav-link.active {
   text-decoration: underline;
 }
+
 
 /* Delete Styling */
 .btn-delete {
