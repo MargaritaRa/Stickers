@@ -21,8 +21,10 @@
 
 
 body {
-  margin: 0;
+  margin:0;
   padding: 0;
+	color:#6a8c78;
+	background:#fffff7;
 }
 
 
@@ -48,6 +50,23 @@ header {
 .logo h1 {
   margin: 0;
 }
+/* Home page Bakground */
+.home-page {
+  background-image: url('/image/Blue.jpg');
+  background-color: #fffff7 !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1800px;
+}
 
 
 
@@ -64,6 +83,12 @@ header {
   padding: 2rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  background: rgba(22, 34, 31, 0.1);
+  background: rgba(232, 232, 232, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .login-container, .signup-container {
@@ -74,10 +99,20 @@ header {
   padding: 2rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  background: rgba(52, 162, 135, 0.47);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .login-container h2, .signup-container h2 {
   margin-bottom: 1rem;
+}
+.input-field{
+  border-radius: 1rem;
+  border-color: #5bc5a9;
+  padding: .4rem;
 }
 
 /* User information */
@@ -97,9 +132,9 @@ header {
 /* Footer styling */
 .footer{
   font-family: "Kite One", sans-serif;
+  color: #fff;
   background-color: #5bc5a9;
   border-radius: 4px;
-  color: #fff;
   text-align: center;
   padding: 2rem 0;
   position: fixed;
@@ -120,6 +155,9 @@ header {
   display: flex;
   gap: 1rem;
 }
+.footer_inner{
+  color: #e1ebdf;
+}
 
 /* cart header styling */
 .cartPage{
@@ -131,23 +169,6 @@ header {
   border: 1px solid rgba(255, 240, 174, 1);
 }
 
-
-/* Home page Bakground */
-.app {
-  background-image: url('/image/Blue.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
-  max-width: 1800px;
-}
 
 /* Shop Now route style */
 .stickerPost{
@@ -207,7 +228,7 @@ img{
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: 4px solid #ccc;
+  /* border-bottom: 4px solid #ccc; */
   z-index: 100;
 }
 .nav-container {
@@ -313,7 +334,7 @@ img{
 }
 
 .payment button:disabled {
-  background-color: #ccc;
+  /* background-color: #ccc; */
   cursor: not-allowed;
 }
 
@@ -322,12 +343,12 @@ img{
 }
 
 /* Payment form input label */
-÷
+
 
 /* Payment form input placeholder */
-.payment input::placeholder {
+/* .payment input::placeholder {
   color: #888;
-}
+} */
 
 /* Payment form input focus style */
 /* .payment input:focus {

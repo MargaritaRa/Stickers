@@ -37,19 +37,25 @@ function Signup({setCurrentUser}){
     return(
         <form className="user-form" onSubmit={handleSubmit}>
 
-            <input type="text"
+            <input 
+            className='input-field'
+            type="text"
             onChange={e => setUsername(e.target.value)}
             value={username}
             placeholder='Username'
             />
 
-            <input type="text"
+            <input 
+            className='input-field'
+            type="text"
             onChange={e => setPassword(e.target.value)}
             value={password}
             placeholder="Password"
             />
 
-            <input type="number"
+            <input 
+            className='input-field'
+            type="number"
             onChange = {handleAgeChange}
             value={age}
             placeholder='Age'
