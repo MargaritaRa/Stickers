@@ -61,11 +61,11 @@ export default function CartPage(){
 
       return (
         <div className="sticker-container">
-            <h1 className="cartPage">This is Cart Page</h1>
+            <h1 className="cartPage">Your Cart:</h1>
             {error && <p className="error">{error}</p>}
             {mappedCartItems}
             <Link to="/payment">
-                <button>Proceed to Payment</button>
+                <button className="btn-process">Proceed to Payment</button>
             </Link>
         </div>
       );

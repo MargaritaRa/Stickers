@@ -32,8 +32,8 @@ function PaymentPage() {
     console.log(stickerArr)
     return (
         <div>
-            <h1>Payment Page</h1>
-            <h2>Total Amount: ${totalAmount.toFixed(2)}</h2>
+            <h1 className='cartPage'>Checkout:</h1>
+            <h2 className='cartPage'>Total Amount: ${totalAmount.toFixed(2)}</h2>
             <ul>
                 {cartItems.map(item => (
                     <li key={item.id}>

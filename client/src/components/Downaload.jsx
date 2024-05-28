@@ -33,7 +33,7 @@ export default function Download({stickerArr}) {
 
     return (
         <div>
-             <button onClick={handleZip}>Download</button>
+             <button className='btn-download' onClick={handleZip}>Download</button>
         </div>
       )
 }

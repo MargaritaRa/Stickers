@@ -115,20 +115,6 @@ header {
   padding: .4rem;
 }
 
-/* User information */
-
-.btn-logout{
-  background: #fff0ae;
-  color: black;
-  display: inline-block;
-  width: fit-content;
-  padding: 0.1rem 0.2rem;
-  border-radius: 4rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: .3s ease all;
-}
-
 /* Footer styling */
 .footer{
   font-family: "Kite One", sans-serif;
@@ -161,12 +147,14 @@ header {
 
 /* cart header styling */
 .cartPage{
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 240, 174, 1);
+  border: 1px solid rgba(255, 240, 174, 1); */
+  font-family: "Poetsen One", sans-serif;
+  color: #ba56c6;
 }
 
 .cart{
@@ -339,23 +327,24 @@ img{
   border-radius: 12px; /* Adjusted border radius */
   border: 4px solid #1c8b5d; /* Darker green border */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
+  width: 40%;
 }
 
-/* .payment input {
+.payment input {
   padding: 12px; 
   margin-bottom: 20px;
   border: 2px solid #ddd; 
   border-radius: 8px; 
   width: 100%;
   box-sizing: border-box;
-} */
+}
 
 .payment button {
   background-color: #1c8b5d; /* Darker green */
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 14px 28px; /* Adjusted padding */
+  padding: 10px 20px; /* Adjusted padding */
   cursor: pointer;
   font-size: 20px; /* Adjusted font size */
   transition: background-color 0.3s;
@@ -367,16 +356,16 @@ img{
 }
 
 .payment button:hover {
-  background-color: #165f41; /* Darker shade of green on hover */
+  background-color: #165f41; 
 }
 
 /* Payment form input label */
 
 
 /* Payment form input placeholder */
-/* .payment input::placeholder {
+.payment input::placeholder {
   color: #888;
-} */
+}
 
 /* Payment form input focus style */
 /* .payment input:focus {
@@ -384,3 +373,52 @@ img{
   border-color: #1c8b5d; 
 } */
 
+/* button styling */
+/* {
+  border: 1rem;
+  background-color: transparent;
+} */
+/* User information */
+
+.btn-logout{
+  background: transparent;
+  color: whitesmoke;
+  display: inline-block;
+  width: fit-content;
+  padding: 0.1rem 0.2rem;
+  border-radius: 1rem;
+  border-color: #fff0ae;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .3s ease all;
+}
+.btn-process{
+  font-family: "Poetsen One", sans-serif;
+  background: transparent;
+  color: #ba56c6;
+  display: inline-block;
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border-width: .4em;
+  border-color: #fff0ae;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .3s ease all;
+  position: relative;
+  /* right: 425%; */
+  left:125%;
+  top: 45%;
+}
+.btn-download{
+  background: #ba56c6;
+  color: whitesmoke;
+  display: inline-block;
+  width: fit-content;
+  padding: 1rem .5rem;
+  border-radius: 1rem;
+  border-color: #fff0ae;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .3s ease all;
+}
