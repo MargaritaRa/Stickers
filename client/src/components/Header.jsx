@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import NavBar from './NavBar';
 import CurrentUserContext from './CurrentUserContext';
+import {Link} from 'react-router-dom';
 
 export default function Header() {
 
@@ -11,7 +12,9 @@ export default function Header() {
     <header>
       <div className="header-content">
         <div className="logo" role="img">
-          <h1>🧃Stickers🧃</h1>
+        <Link to="./">
+          <h1 >🧃Stickers🧃</h1>
+        </Link>
         </div>
         <NavBar currentUser={currentUser} />
         {currentUser && (

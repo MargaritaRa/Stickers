@@ -39,6 +39,7 @@ header {
   padding: 1rem 2rem;
   max-width: 100%;
   height: auto;
+  text-decoration: none;
 }
 .header-content {
   display: flex;
@@ -48,6 +49,13 @@ header {
 }
 .logo h1 {
   margin: 0;
+  background-color: #5bc5a9;
+  color: #fff0ae;
+}
+
+
+a:link{
+  text-decoration: none;
 }
 /* Home page Bakground */
 .home-page {
