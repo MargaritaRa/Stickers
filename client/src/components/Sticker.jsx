@@ -13,7 +13,7 @@ function Sticker({itemId, userId, name, price, image, category, onDelete, inCart
             </div>
             <div className="sticker-footer">
                 <h3>{name}</h3>
-                <h4>{price}</h4>
+                <h4>${price}</h4>
                 <h4 className="category">{category}</h4>
             </div>
             {inCart ? (
@@ -21,7 +21,7 @@ function Sticker({itemId, userId, name, price, image, category, onDelete, inCart
             ) : (
                 <CartFunction userId={userId} itemId={itemId} />
             )}
-    </article>
+        </article>
     );
 }
 

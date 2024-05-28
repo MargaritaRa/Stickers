@@ -169,6 +169,11 @@ header {
   border: 1px solid rgba(255, 240, 174, 1);
 }
 
+.cart{
+  margin:0.5rem 1rem 1rem 2rem
+}
+
+
 
 /* Shop Now route style */
 .stickerPost{
@@ -192,6 +197,7 @@ header {
   display: grid;
   grid-template-columns: repeat(5 , 1fr);
   gap: 4rem;
+  margin: 30px 20px 160px 
  
 }
 
@@ -200,15 +206,37 @@ img{
   object-fit: cover;
   width: 100%;
 }
+
 .sticker-img{
-  border-radius: .8rem;
-  overflow: hidden;
-}
-.sticker-footer{
+  height: 300px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:20px
+}
+
+.sticker-img img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
+}
+
+.sticker-footer{
+  display: block;
+  height: 100px;
   align-items: flex-end;
-  margin-top: 1rem;
+  margin: 1rem 1rem 1rem 2rem;
   justify-content: space-between;
+  overflow:scroll;
+  position: relative;
+}
+
+
+.sticker-footer h3,
+.sticker-footer h4 {
+    margin: 0.5rem 0; /* Adjust margin to control space between lines */
+    line-height: 1.2; /* Adjust line-height to control the space within each line */
 }
 
 .sticker-header{
