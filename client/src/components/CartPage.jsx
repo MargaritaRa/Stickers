@@ -1,7 +1,6 @@
 import React, {useState, useEffect}  from "react"
 import { Link } from "react-router-dom";
 import Sticker from "./Sticker"
-import PaymentForm from "./PaymentForm";
 
 export default function CartPage(){
 
@@ -68,7 +67,6 @@ export default function CartPage(){
             <Link to="/payment">
                 <button>Proceed to Payment</button>
             </Link>
-          {/* <PaymentForm /> */}
         </div>
       );
     }
