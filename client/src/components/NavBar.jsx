@@ -8,7 +8,7 @@ export default function NavBar({ currentUser }){
         <div>
             <nav>
             <div className="container nav-container">
-                    <NavLink className="nav-link" to='/'>Home</NavLink>
+                    <Link className="nav-link" to='/'>Home</Link>
                     
                     <NavLink className="nav-link" to='/cart'>Cart</NavLink>
                    
