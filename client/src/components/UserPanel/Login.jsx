@@ -27,13 +27,17 @@ function Login({setCurrentUser}){
         <div>
             <form className='user-form' onSubmit={handleSubmit}>
 
-                <input type="text"
+                <input 
+                className='input-field' 
+                type="text"
                 onChange={e => setUsername(e.target.value)}
                 value={username}
                 placeholder='username'
                 />
 
-                <input type="text"
+                <input 
+                className='input-field' 
+                type="text"
                 onChange = {e => setPassword(e.target.value)}
                 value={password}
                 placeholder='password'
