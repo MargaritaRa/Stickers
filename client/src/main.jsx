@@ -41,13 +41,18 @@ const routes = [
         path: 'cart', 
         element: <CartPage />, 
         errorElement: <ErrorPage />, 
-        children: [
-          { 
-            path: 'payment', 
-            element: <PaymentPage />, 
-            errorElement: <ErrorPage /> 
-          }
-        ],
+        // children: [
+        //   { 
+        //     path: 'payment', 
+        //     element: <PaymentPage />,
+        //     errorElement: <ErrorPage /> 
+        //   }
+        // ],
+      },
+      {
+        path: 'payment', 
+        element: <PaymentPage />,
+        errorElement: <ErrorPage />
       },
       { 
         path: 'userPanel', 

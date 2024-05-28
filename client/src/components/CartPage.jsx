@@ -1,12 +1,7 @@
-
 import React, {useState, useEffect}  from "react"
 import { Link } from "react-router-dom";
 import Sticker from "./Sticker"
 import PaymentForm from "./PaymentForm";
-
-
-
-
 
 export default function CartPage(){
 
@@ -18,7 +13,8 @@ export default function CartPage(){
         .then(res=>{
             if (res.ok){
                 return res.json()
-            }else{
+            }
+            else {
                 throw new Error ('Failed to fetch cart items')
             }
         })
@@ -69,10 +65,10 @@ export default function CartPage(){
             <h1 className="cartPage">This is Cart Page</h1>
             {error && <p className="error">{error}</p>}
             {mappedCartItems}
-            <Link to="/cart/payment">
+            <Link to="/payment">
                 <button>Proceed to Payment</button>
             </Link>
-          <PaymentForm />
+          {/* <PaymentForm /> */}
         </div>
       );
     }

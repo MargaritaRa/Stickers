@@ -2,11 +2,11 @@ import { useState } from "react";
 import JSZip from "jszip";
 
 // npm i jszip
-export default function Download() {
+export default function Download({stickerArr}) {
 
-    const [stickerArr ,setStickerArr] = useState([
-        "cat.png"
-    ])
+    // const [stickerArr ,setStickerArr] = useState([
+    //     "cat.png"
+    // ])
 
     const zip = new JSZip();
 

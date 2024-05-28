@@ -1,6 +1,6 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-function PaymentForm({ userName }) {
+function PaymentForm({ userName, setToggle }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -16,7 +16,9 @@ function PaymentForm({ userName }) {
 
     if (!error) {
       console.log("Payment successful!", paymentMethod);
-    } else {
+      setToggle(true);
+    } 
+    else {
       console.log("Payment processing failed. Please try again.");
     }
   };
