@@ -10,6 +10,7 @@ export default function CartPage(){
     useEffect(()=>{
         fetch('/api/carts') 
         .then(res=>{
+          console.log("Fetch response:", res);
             if (res.ok){
                 return res.json()
             }
@@ -18,6 +19,7 @@ export default function CartPage(){
             }
         })
         .then(data=>{
+            console.log("Fetched data:", data);
             setCartItems(data)
         })
         .catch(error=>{
@@ -27,10 +29,12 @@ export default function CartPage(){
     console.log("cartitems: ",cartItems)
 
     const handleDelete = (itemId) => {
+        console.log("Deleting item with ID:", itemId);
         fetch(`/api/carts/${itemId}`, {
           method: 'DELETE',
         })
           .then(res => {
+            console.log("Delete response:", res);
             if (res.ok) {
               setCartItems(prevItems => prevItems.filter(item => item.item.id !== itemId));
             } else {
