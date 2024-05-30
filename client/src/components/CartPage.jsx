@@ -21,6 +21,8 @@ export default function CartPage(){
         .then(data=>{
             console.log("Fetched data:", data);
             setCartItems(data)
+            console.log(data)
+
         })
         .catch(error=>{
             setError(error.message)
@@ -36,7 +38,7 @@ export default function CartPage(){
           .then(res => {
             console.log("Delete response:", res);
             if (res.ok) {
-              setCartItems(prevItems => prevItems.filter(item => item.item.id !== itemId));
+              setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
             } else {
               throw new Error('Failed to delete item');
             }
@@ -56,7 +58,7 @@ export default function CartPage(){
           price={cartItem.item.price}
           image={cartItem.item.image}
           category={cartItem.item.category}
-          itemId={cartItem.item.id}
+          itemId={cartItem.id}
           onDelete={handleDelete}
           inCart={true}
         />

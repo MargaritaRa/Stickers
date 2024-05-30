@@ -2,6 +2,7 @@ import CartFunction from "./CartFunction";
 
 
 function Sticker({itemId, userId, name, price, image, category, onDelete, inCart }) {
+    console.log(itemId)
 
 
 
