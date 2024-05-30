@@ -162,7 +162,8 @@ def cart_items_by_user_id():
 #function for deleting item from the users cart
 @app.delete(URL_PREFIX + '/carts/<int:id>')
 def delete_cart_item(id):
-    cart_item = Carts.query.where(Carts.id == id).first()
+    cart_item = Carts.query.where(Carts.item_id == id).first()
+    print(cart_item)
     if cart_item:
         db.session.delete(cart_item)
         db.session.commit()
