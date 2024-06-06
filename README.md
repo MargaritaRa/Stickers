@@ -3,7 +3,7 @@
 
 
 ## Overview
-Welcome to our Phase 4 Stickers E-Commerce project! This project provides an online platform for purchasing stickers. Below are the detailed steps to set up and run the project.
+Welcome to our Phase 4 Stickers E-Commerce project! This project provides an online platform for purchasing stickers. Below are the detailed steps to set up and run the project.e
 <img width="1290" alt="Screenshot 2024-05-29 at 10 15 57 PM" src="https://github.com/MargaritaRa/Stickers/assets/159962462/73f9c1e9-f1d0-44a7-a47c-937aceddab9a">
 
 
