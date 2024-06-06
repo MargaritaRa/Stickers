@@ -41,7 +41,7 @@ header {
   height: auto;
   text-decoration: none;
 }
-.header-content {
+.content {
   display: flex;
   justify-content: space-between;
   align-items: center;
