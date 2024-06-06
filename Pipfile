@@ -17,6 +17,8 @@ python-dotenv = "*"
 bcrypt = "*"
 flask-bcrypt = "*"
 stripe = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
 
 [dev-packages]
 ipdb = "*"
